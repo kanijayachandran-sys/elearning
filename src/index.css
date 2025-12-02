@@ -1,0 +1,44 @@
+/* Tailwind base layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styling for dark / neon theme */
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-50;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+}
+
+/* Reusable neon card style */
+@layer components {
+  .neon-card {
+    @apply relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70 backdrop-blur shadow-[0_0_25px_rgba(16,185,129,0.35)];
+  }
+
+  .neon-card::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background:
+      radial-gradient(circle at top, rgba(16,185,129,0.35), transparent 55%),
+      radial-gradient(circle at bottom, rgba(59,130,246,0.35), transparent 55%);
+    opacity: 0.35;
+    z-index: -1;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
